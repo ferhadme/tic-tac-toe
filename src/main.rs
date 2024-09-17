@@ -160,7 +160,7 @@ impl std::convert::From<Element> for Turn {
     }
 }
 
-fn main() {
+fn main() -> Result<(), ()> {
     let mut game = Game::new();
 
     let stdin = io::stdin();
@@ -187,9 +187,15 @@ fn main() {
 	match game.check_winner() {
 	    Some(player) => {
 		println!("{} won!", player);
+		return Ok(());
 	    },
 	    None => {}
 	}
 	println!();
     }
+
+    return Ok(());
 }
+
+// TODO: Add socket for multiplayer functionality
+// TODO: Port to WebAssembly

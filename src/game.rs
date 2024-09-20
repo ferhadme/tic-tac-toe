@@ -1,3 +1,5 @@
+use wasm_bindgen::prelude::*;
+
 #[derive(Copy, Clone, PartialEq, Debug)]
 enum Element {
     X,
@@ -34,6 +36,7 @@ impl std::fmt::Display for Turn {
     }
 }
 
+#[wasm_bindgen]
 pub struct Game {
     board: [[Element; 3]; 3],
     turn: Turn,

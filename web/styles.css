@@ -1,0 +1,65 @@
+/* Basic styles for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#game-name-container {
+    display: flex;
+    justify-content: center;
+}
+
+#game-container {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style for the game title */
+#game-name {
+    font-size: 2em;
+}
+
+/* Style for the turn indicator */
+#turn {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#element-container {
+    margin-top: 25px;
+}
+
+/* Container for the Tic Tac Toe lines */
+.ttt-line {
+    display: flex;
+}
+
+/* Style for each Tic Tac Toe cell */
+.ttt-elem {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+/* Add hover effect */
+.ttt-elem:hover {
+    background-color: #f2f2f2;
+}
+
+/* Style for a winning line (if you want to highlight it in JS later) */
+.ttt-line.winning {
+    background-color: #ffeb3b;
+}

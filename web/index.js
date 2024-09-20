@@ -1,2 +1,4 @@
 import './style/styles.css';
-import './src/game.js';
+import { start_game } from './src/game.js';
+
+start_game();

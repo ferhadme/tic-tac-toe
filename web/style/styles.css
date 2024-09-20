@@ -25,9 +25,14 @@ body {
 }
 
 /* Style for the turn indicator */
-#turn {
-    font-size: 1.5em;
+#info-container {
+    font-size: 1.2em;
     margin-bottom: 20px;
+}
+
+#info-player {
+    color: #b2c74c;
+    font-weight: bold;
 }
 
 #element-container {

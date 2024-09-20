@@ -15,6 +15,18 @@ impl std::convert::From<Element> for Turn {
     }
 }
 
+impl std::fmt::Display for Element {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+	let element_str = match *self {
+	    Element::X => "X",
+	    Element::O => "O",
+	    Element::EMPTY => ""
+	};
+	write!(f, "{}", element_str)?;
+	return Ok(());
+    }
+}
+
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum Turn {
     P1,
@@ -40,12 +52,13 @@ impl std::fmt::Display for Turn {
 pub struct Game {
     board: [[Element; 3]; 3],
     turn: Turn,
+    finished: bool
 }
 
 impl Game {
     pub fn new() -> Self {
 	let board = [[Element::EMPTY; 3]; 3];
-	return Self {board: board, turn: Turn::P1};
+	return Self {board: board, turn: Turn::P1, finished: false};
     }
 
     pub fn play(&mut self, c1: usize, c2: usize) -> Result<(), String>{
@@ -55,21 +68,45 @@ impl Game {
 
 	let element = self.turn.into();
 
-	self.board[c1][c2] = element;
+	if self.board[c1][c2] != Element::EMPTY || self.finished {
+	    return Err(format!("Game finished"));
+	}
 
+	self.board[c1][c2] = element;
 	self.change_turn();
+
 	return Ok(());
     }
 
-    pub fn check_winner(&self) -> Option<Turn> {
+    pub fn check_winner(&mut self) -> Option<Turn> {
 	if let Some(turn) = self.linear_scan(true) {
+	    self.finished = true;
 	    return Some(turn);
 	}
 	if let Some(turn) = self.linear_scan(false) {
+	    self.finished = true;
+	    return Some(turn);
+	}
+	if let Some(turn) = self.diagonal_scan() {
+	    self.finished = true;
 	    return Some(turn);
 	}
 
-	return self.diagonal_scan();
+	return None;
+    }
+
+    pub fn render_board_as_vec(&self) -> Vec<String> {
+	let mut board = Vec::new();
+	for i in 0..3 {
+	    for j in 0..3 {
+		board.push(self.board[i][j].to_string());
+	    }
+	}
+	return board;
+    }
+
+    pub fn get_turn(&self) -> String {
+	return self.turn.to_string();
     }
 
     fn change_turn(&mut self) {

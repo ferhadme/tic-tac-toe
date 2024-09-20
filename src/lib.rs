@@ -13,15 +13,25 @@ pub fn initialize_game() -> Game {
 }
 
 #[wasm_bindgen]
-pub fn play(game: &mut Game, c1: usize, c2: usize) -> bool {
-    // TODO: Match Ok, Err for coordinates
-    game.play(c1, c2);
-    return true;
+pub fn play(game: &mut Game, c1: usize, c2: usize) {
+    let _ = game.play(c1, c2);
 }
 
 #[wasm_bindgen]
 pub fn check_winner(game: &mut Game) -> u8 {
-    // TODO: Match Ok(Turn), Err
-    game.check_winner();
-    return 0;
+    return match game.check_winner() {
+	Some(Turn::P1) => 1,
+	Some(Turn::P2) => 2,
+	None => 0
+    };
+}
+
+#[wasm_bindgen]
+pub fn render_board(game: &Game) -> Vec<String> {
+    return game.render_board_as_vec();
+}
+
+#[wasm_bindgen]
+pub fn turn(game: &mut Game) -> String {
+    return game.get_turn();
 }

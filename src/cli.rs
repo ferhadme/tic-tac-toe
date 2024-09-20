@@ -4,7 +4,7 @@ use std::io::prelude::*;
 mod game;
 use crate::game::*;
 
-fn main() -> Result<(), ()> {
+fn start() -> Result<(), ()> {
     let mut game = Game::new();
 
     let stdin = io::stdin();
@@ -39,7 +39,5 @@ fn main() -> Result<(), ()> {
     }
 
     return Ok(());
-}
 
-// TODO: Add socket for multiplayer functionality
-// TODO: Port to WebAssembly
+}

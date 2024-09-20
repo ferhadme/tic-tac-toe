@@ -1,8 +1,14 @@
 [package]
 name = "tictactoe"
 version = "0.1.0"
+authors = ["Ferhad Mehdizade <frhdmehdiyev@gmail.com>"]
+description = "Tic Tac Toe Game"
+license = "MIT/Apache-2.0"
+repository = "https://github.com/ferhadme/tictactoe"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies]
+wasm-bindgen = "0.2"

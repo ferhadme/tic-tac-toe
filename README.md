@@ -1,1 +1,16 @@
-### Tic-Tac-Toe Game
+# Tic Tac Toe
+A Tic-Tac-Toe game implemented in Rust, with all game logic written in Rust and compiled to WebAssembly using wasm-pack. The WebAssembly module is then integrated with plain JavaScript to run the application in the browser
+
+<img src="res/app.png"/>
+
+# Compilation
+### Playing in CLI
+```
+$ cargo run
+```
+
+### Playing in Web
+```
+$ npm run build-wasm
+$ npm run serve
+```

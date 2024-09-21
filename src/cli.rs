@@ -1,10 +1,9 @@
 use std::io;
 use std::io::prelude::*;
 
-mod game;
 use crate::game::*;
 
-fn start() -> Result<(), ()> {
+pub fn start() -> Result<(), ()> {
     let mut game = Game::new();
 
     let stdin = io::stdin();

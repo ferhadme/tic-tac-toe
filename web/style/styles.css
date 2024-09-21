@@ -68,3 +68,9 @@ body {
 .ttt-line.winning {
     background-color: #ffeb3b;
 }
+
+#copyright {
+    display: flex;
+    justify-content: center;
+}
+

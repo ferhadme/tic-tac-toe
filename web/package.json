@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "serve": "webpack serve --config webpack.config.js --open"
+    "serve": "webpack serve --config webpack.config.js --open",
+    "build-wasm": "wasm-pack build --target bundler"
   },
   "repository": {
     "type": "git",

@@ -13,6 +13,7 @@ $ cargo run
 
 ### Playing in Web
 ```
+$ cd web
 $ npm run build-wasm
 $ npm run serve
 ```

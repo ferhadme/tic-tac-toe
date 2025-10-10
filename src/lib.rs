@@ -20,9 +20,9 @@ pub fn play(game: &mut Game, c1: usize, c2: usize) {
 #[wasm_bindgen]
 pub fn check_winner(game: &mut Game) -> u8 {
     return match game.check_winner() {
-	Some(Turn::P1) => 1,
-	Some(Turn::P2) => 2,
-	None => 0
+	    Some(Turn::P1) => 1,
+	    Some(Turn::P2) => 2,
+	    None => 0
     };
 }
 

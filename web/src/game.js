@@ -18,7 +18,7 @@ function play(game, coord_1, coord_2) {
 function render_board(board) {
     const ttt_elements = document.getElementsByClassName('ttt-elem');
     for (let i = 0; i < ttt_elements.length; i++) {
-	ttt_elements[i].textContent = board[i];
+	    ttt_elements[i].textContent = board[i];
     }
 }
 
@@ -36,7 +36,7 @@ function check_winner(result) {
 function add_event_listeners(game) {
     const ttt_elements = document.getElementsByClassName('ttt-elem');
     for (let i = 0; i < ttt_elements.length; i++) {
-	ttt_elements[i].addEventListener('click', add_event_listener_ttt_elem(game, i));
+	    ttt_elements[i].addEventListener('click', add_event_listener_ttt_elem(game, i));
     }
 }
 
@@ -44,7 +44,7 @@ function add_event_listener_ttt_elem(game, index) {
     const coord_1 = Math.floor(index / 3);
     const coord_2 = index % 3;
     return () => {
-	play(game, coord_1, coord_2);
+	    play(game, coord_1, coord_2);
     };
 }
 
